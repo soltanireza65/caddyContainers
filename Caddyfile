@@ -1,0 +1,21 @@
+{
+    email soltanireza65@gmail.com
+}
+
+portainer.pondersource.net {
+    reverse_proxy portainer:9000
+}
+
+profile.pondersource.net {
+    reverse_proxy profile:8081
+    header {
+		Strict-Transport-Security max-age=31536000;
+	}
+}
+
+bookmarks.pondersource.net {
+    reverse_proxy bookmarks:8082
+    header {
+		Strict-Transport-Security max-age=31536000;
+	}
+}
