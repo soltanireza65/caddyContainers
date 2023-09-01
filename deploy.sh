@@ -14,7 +14,7 @@ git pull
 # find . -type d -depth 2 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull origin main \;
 
 git --git-dir=apps/bookmarks/.git --work-tree=./apps/bookmarks pull origin main
-git --git-dir=apps/bookmarks/.git --work-tree=./apps/profile pull origin main
+git --git-dir=apps/profile/.git --work-tree=./apps/profile pull origin main
 
 if [ "$DEPLOY_MODE" == "--clean" ]; then
     sudo docker stop $(docker ps -a -q)
