@@ -33,7 +33,7 @@ services:
       context: ./apps/bookmarks
     restart: unless-stopped
     ports:
-      - 8082:8081
+      - 8082:8082
     networks:
       - caddy
   rs_bookmarks:
@@ -42,7 +42,7 @@ services:
       context: ./apps/rs_bookmarks
     restart: unless-stopped
     ports:
-      - 8083:8081
+      - 8083:8083
     networks:
       - caddy
 
