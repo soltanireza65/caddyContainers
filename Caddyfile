@@ -14,7 +14,7 @@ profile.pondersource.net {
 }
 
 bookmarks.pondersource.net {
-    reverse_proxy bookmarks:8082
+    reverse_proxy rs_bookmarks:8083
     header {
 		Strict-Transport-Security max-age=31536000;
 	}
