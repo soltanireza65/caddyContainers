@@ -14,12 +14,12 @@ profile.pondersource.net {
 }
 
 bookmarks.pondersource.net {
-    reverse_proxy rs_bookmarks:8083
+    reverse_proxy bookmarks:8082
     header {
 		Strict-Transport-Security max-age=31536000;
 	}
 }
-rs_bookmarks.pondersource.net {
+rs-bookmarks.pondersource.net {
     reverse_proxy rs_bookmarks:8083
     header {
 		Strict-Transport-Security max-age=31536000;
