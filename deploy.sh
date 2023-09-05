@@ -8,6 +8,7 @@ DEPLOY_MODE=$1
 
 git pull
 
+[ ! -d "apps/rs_bookmarks" ] && git clone https://github.com/pondersource/rs_bookmarks apps/rs_bookmarks
 [ ! -d "apps/bookmarks" ] && git clone git@github.com:pondersource/solidBookmarker.git apps/bookmarks
 [ ! -d "apps/profile" ] && git clone git@github.com:pondersource/solidProfileEditor.git apps/profile
 
@@ -15,6 +16,7 @@ git pull
 
 git --git-dir=apps/bookmarks/.git --work-tree=./apps/bookmarks pull origin main
 git --git-dir=apps/profile/.git --work-tree=./apps/profile pull origin main
+git --git-dir=apps/rs_bookmarks/.git --work-tree=./apps/rs_bookmarks pull origin main
 
 if [ "$DEPLOY_MODE" == "--clean" ]; then
     sudo docker stop $(docker ps -a -q)

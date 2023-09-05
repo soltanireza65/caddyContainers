@@ -36,6 +36,15 @@ services:
       - 8082:8081
     networks:
       - caddy
+  rs_bookmarks:
+    container_name: rs_bookmarks
+    build:
+      context: ./apps/rs_bookmarks
+    restart: unless-stopped
+    ports:
+      - 8083:8081
+    networks:
+      - caddy
 
   caddy:
     image: caddy:latest
