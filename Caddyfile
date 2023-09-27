@@ -25,3 +25,11 @@ rs-bookmarks.pondersource.net {
 		Strict-Transport-Security max-age=31536000;
 	}
 }
+
+
+sb-bot.pondersource.net {
+    reverse_proxy solid-slack-bridge:8000
+}
+sb-web.pondersource.net {
+    reverse_proxy solid-slack-bridge:8080
+}

@@ -26,6 +26,16 @@ services:
       - 8081:8081
     networks:
       - caddy
+  solid-slack-bridge:
+    container_name: solid-slack-bridge
+    build:
+      context: ./apps/solid-slack-bridge
+    restart: unless-stopped
+    ports:
+      - 8000:8000
+      - 8080:8080
+    networks:
+      - caddy
 
   bookmarks:
     container_name: bookmarks
