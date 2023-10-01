@@ -26,7 +26,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - portainer-data:/data
+      - portainer_data:/data
     networks:
       - caddy
     ports:
@@ -38,6 +38,6 @@ services:
 volumes:
   caddy_data:
     external: true
-  portainer-data:
+  portainer_data:
     external: true
   caddy_config:

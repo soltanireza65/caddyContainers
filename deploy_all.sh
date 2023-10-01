@@ -4,22 +4,13 @@ DEPLOY_MODE=$1
 
 git pull
 
-[ ! -d "apps/rs_bookmarks" ] && git clone https://github.com/pondersource/rs_bookmarks apps/rs_bookmarks
-[ ! -d "apps/bookmarks" ] && git clone git@github.com:pondersource/solidBookmarker.git apps/bookmarks
+# add app to list
 [ ! -d "apps/profile" ] && git clone git@github.com:pondersource/solidProfileEditor.git apps/profile
 
-# find . -type d -depth 2 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull origin main \;
-
-git --git-dir=apps/bookmarks/.git --work-tree=./apps/bookmarks pull origin main
+# add app to list
 git --git-dir=apps/profile/.git --work-tree=./apps/profile pull origin main
-git --git-dir=apps/rs_bookmarks/.git --work-tree=./apps/rs_bookmarks pull origin main
-
-if [ "$DEPLOY_MODE" == "--clean" ]; then
-    sudo docker stop $(docker ps -a -q)
-    sudo docker rm $(docker ps -a -q)
-fi
 
 docker volume create caddy_data
-docker volume create portainer-data
+docker volume create portainer_data
 
 sudo docker compose up -d --build

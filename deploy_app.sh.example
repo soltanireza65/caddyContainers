@@ -14,6 +14,6 @@ git --git-dir=apps/${APP_NAME}/.git --work-tree=./apps/${APP_NAME} pull origin m
 
 
 docker volume create caddy_data
-docker volume create portainer-data
+docker volume create portainer_data
 
 sudo docker compose up -d ${APP_NAME} --build
