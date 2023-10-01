@@ -4,32 +4,7 @@
 
 portainer.pondersource.net {
     reverse_proxy portainer:9000
-}
-
-profile.pondersource.net {
-    reverse_proxy profile:8081
     header {
 		Strict-Transport-Security max-age=31536000;
 	}
-}
-
-bookmarks.pondersource.net {
-    reverse_proxy bookmarks:8082
-    header {
-		Strict-Transport-Security max-age=31536000;
-	}
-}
-rs-bookmarks.pondersource.net {
-    reverse_proxy rs_bookmarks:8083
-    header {
-		Strict-Transport-Security max-age=31536000;
-	}
-}
-
-
-sb-bot.pondersource.net {
-    reverse_proxy solid-slack-bridge:8000
-}
-sb-web.pondersource.net {
-    reverse_proxy solid-slack-bridge:8080
 }

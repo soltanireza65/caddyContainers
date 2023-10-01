@@ -1,0 +1,19 @@
+#!/bin/bash
+
+
+APP_NAME=solid-slack-bridge
+REPO_URL=https://github.com/pondersource/solid-slack-bridge
+
+
+echo "${APP_NAME} - ${REPO_URL}"
+git pull
+
+[ ! -d "apps/${APP_NAME}" ] && git clone ${REPO_URL} apps/${APP_NAME}
+
+git --git-dir=apps/${APP_NAME}/.git --work-tree=./apps/${APP_NAME} pull origin main
+
+
+docker volume create caddy_data
+docker volume create portainer-data
+
+sudo docker compose up -d ${APP_NAME} --build

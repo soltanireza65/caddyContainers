@@ -2,60 +2,6 @@ version: '3.9'
 networks:
   caddy:
 services:
-  portainer:
-    image: portainer/portainer-ce:latest
-    container_name: portainer
-    restart: unless-stopped
-    security_opt:
-      - no-new-privileges:true
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - portainer-data:/data
-    networks:
-      - caddy
-    ports:
-      - 9000:9000
-  
-  profile:
-    container_name: profile
-    build:
-      context: ./apps/profile
-    restart: unless-stopped
-    ports:
-      - 8081:8081
-    networks:
-      - caddy
-  solid-slack-bridge:
-    container_name: solid-slack-bridge
-    build:
-      context: ./apps/solid-slack-bridge
-    restart: unless-stopped
-    ports:
-      - 8000:8000
-      - 8080:8080
-    networks:
-      - caddy
-
-  bookmarks:
-    container_name: bookmarks
-    build:
-      context: ./apps/bookmarks
-    restart: unless-stopped
-    ports:
-      - 8082:8082
-    networks:
-      - caddy
-  rs_bookmarks:
-    container_name: rs_bookmarks
-    build:
-      context: ./apps/rs_bookmarks
-    restart: unless-stopped
-    ports:
-      - 8083:8083
-    networks:
-      - caddy
-
   caddy:
     image: caddy:latest
     restart: unless-stopped
@@ -70,6 +16,25 @@ services:
       - caddy_config:/config
     networks:
       - caddy
+
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - portainer-data:/data
+    networks:
+      - caddy
+    ports:
+      - 9000:9000
+
+  # add your service
+  # attach to caddy network
+  
 volumes:
   caddy_data:
     external: true

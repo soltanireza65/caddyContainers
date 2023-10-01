@@ -1,10 +1,6 @@
 #!/bin/bash
 
-# PWD=$(pwd)
-# export PWD=$PWD
-
 DEPLOY_MODE=$1
-
 
 git pull
 
