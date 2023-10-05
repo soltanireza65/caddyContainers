@@ -2,8 +2,14 @@
     email soltanireza65@gmail.com
 }
 
-portainer.pondersource.net {
+portainer.rezasoltani.info {
     reverse_proxy portainer:9000
+    header {
+		Strict-Transport-Security max-age=31536000;
+	}
+}
+me.rezasoltani.info {
+    reverse_proxy me:8081
     header {
 		Strict-Transport-Security max-age=31536000;
 	}
