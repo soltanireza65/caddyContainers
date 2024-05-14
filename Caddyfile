@@ -2,8 +2,8 @@
     email soltanireza65@gmail.com
 }
 
-portainer.pondersource.net {
-    reverse_proxy portainer:9000
+api.daal.plus {
+    reverse_proxy localhost:9000
     header {
 		Strict-Transport-Security max-age=31536000;
 	}
