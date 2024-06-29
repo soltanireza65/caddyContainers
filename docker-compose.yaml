@@ -1,22 +1,14 @@
-version: '3.9'
-networks:
-  caddy:
 services:
   caddy:
-    image: caddy:latest
-    restart: unless-stopped
+    image: caddy
+    restart: always
     container_name: caddy
     ports:
       - 80:80
       - 443:443
+      - 8080:8080
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
-      - ./site:/srv
-      - caddy_data:/data
-      - caddy_config:/config
-    networks:
-      - caddy
-  
-volumes:
-  caddy_data:
-  caddy_config:
+      - ./_caddy/srv:/srv
+      - ./_caddy/data:/data
+      - ./_caddy/config:/config
