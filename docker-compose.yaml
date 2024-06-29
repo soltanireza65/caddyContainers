@@ -6,9 +6,8 @@ services:
     ports:
       - 80:80
       - 443:443
-      - 8080:8080
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
-      - ./_caddy/srv:/srv
-      - ./_caddy/data:/data
-      - ./_caddy/config:/config
+      - ./.caddy/srv:/srv
+      - ./.caddy/data:/data
+      - ./.caddy/config:/config
